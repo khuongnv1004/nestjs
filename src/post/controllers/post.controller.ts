@@ -9,7 +9,7 @@ import {
     Query,
   } from '@nestjs/common';
   import { CreatePostDto, UpdatePostDto } from '../dto/post.dto';
-import { PostService } from '../service/post.service';
+import { PostService } from '../services/post.service';
 
   
   @Controller('post')
