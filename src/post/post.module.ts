@@ -6,14 +6,15 @@ import { PostRepository } from './repositories/post.repository';
 import { PostService } from './services/post.service';
 
 @Module({
-  imports:[MongooseModule.forFeature([
-    {
-      name:'Post',
-      schema:PostSchema
-    },
-  ])
-],
+  imports: [
+    MongooseModule.forFeature([
+      {
+        name: 'Post',
+        schema: PostSchema,
+      },
+    ]),
+  ],
   controllers: [PostController],
-  providers:[PostService, PostRepository]
+  providers: [PostService, PostRepository],
 })
 export class PostModule {}
