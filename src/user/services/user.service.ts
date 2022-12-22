@@ -41,8 +41,9 @@ export class UserService {
   }
 
   async findByEmail(email) {
+    
     return await this.userRepository.findByCondition({
-      email: email,
+      email,
     });
   }
 }
