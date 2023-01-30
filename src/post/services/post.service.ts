@@ -1,13 +1,15 @@
 /* eslint-disable prettier/prettier */
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { CreatePostDto, UpdatePostDto } from '../dto/post.dto';
+import { AddTagDto, CreatePostDto, UpdatePostDto } from '../dto/post.dto';
 import { PostRepository } from '../repositories/post.repository';
+import { TagRepository } from '../repositories/tag.repository';
 
 @Injectable()
 export class PostService {
-  constructor(private readonly postRepository: PostRepository) {}
+  constructor(private readonly postRepository: PostRepository,private readonly tagRepository: TagRepository) {}
 
   async getAllPosts() {
+    
     return this.postRepository.getByCondition({});
   }
 
@@ -29,5 +31,13 @@ export class PostService {
 
   async deletePost(post_id: string) {
     return await this.postRepository.deleteOne(post_id);
+  }
+
+  async getAllTag() {
+    return await this.tagRepository.getByCondition({});
+  }
+
+  async createTag(tag: AddTagDto) {
+    return await this.tagRepository.create(tag);
   }
 }

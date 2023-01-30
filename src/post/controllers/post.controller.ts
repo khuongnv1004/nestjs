@@ -8,7 +8,7 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { CreatePostDto, UpdatePostDto } from '../dto/post.dto';
+import { AddTagDto, CreatePostDto, UpdatePostDto } from '../dto/post.dto';
 import { PostService } from '../services/post.service';
 
 @Controller('post')
@@ -39,5 +39,19 @@ export class PostController {
   async deletePost(@Param('id') id: string) {
     await this.postService.deletePost(id);
     return true;
+  }
+}
+
+@Controller('tag')
+export class TagController {
+  constructor(private readonly postService: PostService) {}
+  @Get('get-tags')
+  async getAllTag() {
+    return this.postService.getAllTag();
+  }
+
+  @Post('add-new-tag')
+  async createTag(@Body() tag: AddTagDto) {
+    return this.postService.createTag(tag);
   }
 }

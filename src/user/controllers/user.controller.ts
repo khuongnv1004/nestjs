@@ -15,7 +15,8 @@ export class UserController {
     
     return req.user;
   }
-
+  
+  @UseGuards(AuthGuard())
   @Post('get-by-email')
   async getByEmail(@Body() req:any) {
     
