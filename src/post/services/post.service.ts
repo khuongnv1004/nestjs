@@ -6,10 +6,12 @@ import { TagRepository } from '../repositories/tag.repository';
 
 @Injectable()
 export class PostService {
-  constructor(private readonly postRepository: PostRepository,private readonly tagRepository: TagRepository) {}
+  constructor(
+    private readonly postRepository: PostRepository,
+    private readonly tagRepository: TagRepository,
+  ) {}
 
   async getAllPosts() {
-    
     return this.postRepository.getByCondition({});
   }
 

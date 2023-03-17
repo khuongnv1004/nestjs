@@ -1,7 +1,5 @@
 /* eslint-disable prettier/prettier */
 import { Document, Schema } from 'mongoose';
-import { scheduled } from 'rxjs';
-import { TagSchema } from './tag.model';
 
 const PostSchema = new Schema(
   {
